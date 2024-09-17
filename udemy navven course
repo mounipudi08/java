@@ -1,1 +1,112 @@
+jdk download
+in ur machine --> u will be having jvm --> irrespective of os 
+hardware top of that os top of that jvm(without jvm we can't run java file)
+java is platform independent --> you can run your application on any machine
+irrespective of hardware or Os
+ur application is independent , but jvm is dependent --> jvm is need to be built for particular OS
+code --> compiler --> byte code --> goes on --> run on jvm 
+the first file need to have main method . the execution starts from the first file
+main has provide particular signature --> public static void main*(String a[])
+javac Hello.java -> compile
+java Hello --> run
+u need extra libraries , and the environment(jre)
+jvm is the part of the jre
+jdk --> jre--> jvm
+if u want to run ur application in ur friends machine --> jre and jvm are installed
+---> variable 
+      Temporary storage
+      data must be numeric,text,Image
+
+Data type -- Primitive -- Integer - byte,short,int,long
+                       -- Float -- double,float
+                       -- character 
+                       --Boolean --> True/False
+
+int --> 4 bytes --> (-231) to (231-1)
+long --> 8 bytes --> -263 to 263-1
+short --> 2 bytes  --> -215 to 215 -1
+byte --> 1 byte  --> -128 to 127
+
+double num = 5.6;
+float num = 5.6f;
+
+char -> 2 bytes
+char c = 'k';
+
+boolean --> true or false
+(0,1) does not work
+
+boolean b = true
+
+--->Type conversion and casting
+
+byte b = 127;
+int a = 256;
+wrong --> b = a;
+correct --> a = b;
+
+Type casting
+b = (byte)a; --> ur converting integer to byte format
+float f = 5.6f;
+int x = (int)f;
+
+Type promotion
+byte a = 10;
+byte b = 30;
+int result = a*b;
+
+What kind of error will be thrown if the main method is not found in the Java program? Run time error
+Which of the following is the valid way to represent a long literal in Java?
+123L,123l,0b1010L
+What is the default value assigned to a variable of boolean type? false
+What does a high-order bit represent for an integer? sign of the integer
+
+logical operators 
+
+& - AND 
+| - OR
+!- Not
+
+In terms of reading files,data base and networks --> while loop make sense
+In terms of frequency for loop make sense
+Which conditional statement is used to check multiple possible values of a variable? switch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         
+
+
+
+
+
+
+
 
