@@ -70,6 +70,243 @@ logical operators
 In terms of reading files,data base and networks --> while loop make sense
 In terms of frequency for loop make sense
 Which conditional statement is used to check multiple possible values of a variable? switch
+int x = 5
+int y=10
+int z = (x++ > 5 && y-- < 10) ? x-- : y
+
+1. Initial values
+x = 5
+y = 10
+
+2.condition evaluation:
+
+(x++ > 5 && y-- < 10)
+
+x++ maeans use the current value of x then increment 
+x++ > 5 becomes 5>5 which is false
+after this x gets incremented so x become 6
+
+y--< 10
+because the first part of the && condition x++ > 5 is false ,the second part y--<10 will not be evaluated (short-circuit behaviour)
+y remains unchanged at 10
+since the entire condition false ,the false part of the ternary executed 
+so x=6 and y = 10 
+
+class and object theory
+java is an object oriented programming
+using pen,mouse --> object
+everything around you is an object
+even treat humans as an object
+every object know some thing and every object does something
+u have to give the design
+u have to create a class file it will act as a blue print for some one who can create object for you in java
+who creates objects in java --> jvm but u give the blue print
+
+methods and variables
+
+JDK -- java development kit --> compile the code 
+on JVM run the code --> java virtual machine
+jre --> java run time environment 
+jre have all the extra files , extra classes 
+and it also validates the byte code 
+jdk --> jre --> jvm
+
+---> methods 
+class Computer 
+{
+public void playMusic() 
+{
+System.out.println("Music Playing")
+}
+public String getMeAPen(int cost) 
+{
+if(cost >= 10) 
+return "Pen";
+else
+ return "Nothing"
+}
+}
+
+public class Demo 
+{
+public satic void main(String a[]) 
+{
+Computer obj = new Computer();
+obj.playMusic();
+String str = obj.getMeAPen(10);
+System.out.println(str);
+}
+}
+
+class Calculator 
+{
+    int a;
+    public int add(int num1,int num2)
+    {
+    // System.out.println("in add");
+    //int r = num1+num2;
+    return num1+num2;
+    }
+    public int add(int num1,int num2,int num3)
+    {
+    // System.out.println("in add");
+    //int r = num1+num2;
+    return num1+num2+num3;
+    }
+    public double add(double num1,int num2)
+    {
+    // System.out.println("in add");
+    //int r = num1+num2;
+    return num1+num2;
+    }
+   
+}
+
+
+public class Twonumbersusingclass {
+   public static void main(String a[])
+   {
+     // int num1=4;
+     // int num2=5;
+      Calculator calc = new Calculator(); //object creation
+     int result = calc.add(3,4);
+     int r = calc.add(3,4,5);
+    //   int result = num1+num2;
+      System.out.println(result);
+   } 
+}
+
+same method name and different type of parameters -- method overloading
+
+-->jvm  has two categories of memory
+1) stack  -> last in first out
+2) heap --> it expands
+stack you stored data in different sequence 
+In heap open space
+a in above code become instance variable 
+num1,num2 are local  variables
+local variables are part of stack 
+and instance variables are part of heap
+
+need of an array
+
+array -- in a variable we can store a value 
+int i=5;
+int j = 6;
+int k = 7;
+we have to store all three values in one variable
+int num[] = {5,6,7}
+int num1[] = new int[4]
+
+multi dimensional array
+An array of arrays , nums array will be having three different arrays
+int nums[][] = new int[3][4] 
+
+Does the main() method overloaded in java -- yes
+
+What will happen if a local variable has the same name as an instance variable within a class?
+
+local variable hides the instance variable
+
+Question 5:
+What will be printed after the execution of the given code?
+
+class Message{
+
+public void printMessage(int message) {
+
+System.out.println("Message primitive: " + message);
+
+}
+
+
+
+public void printMessage(Integer message) {
+
+System.out.println("Message object: " + message);
+
+}
+
+}
+
+
+
+class Main{
+
+public static void main(String []ars){
+
+Message ob=new Message();
+
+ob.printMessage(5);
+
+}
+
+}
+
+message primitive: 5
+Where are instance variables allocated in memory? - head
+
+Which subsystem of the JVM is responsible for loading class files?
+class loader
+
+what type of data is allowed in an array in java
+- homogeous data type only
+
+What does arr[arr.length-1].length represents in a multidimensional array?
+length of the last row in the array
+
+drawbacks of array - for operations it takes more time 
+we can't store multiple data types 
+
+but it is useful for fixed size 
+for storing multiple things we can use collections
+
+Array of objects
+by default integer array will be zero 
+if we use nums.length --> we can't get any error 
+belong to class --> instance variables
+belong to method --> local variables 
+
+enhanced for loop
+for(int n: nums) 
+{
+System.out.println(n);
+}
+
+string - double quotes
+char - single quotes
+
+string is a class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
