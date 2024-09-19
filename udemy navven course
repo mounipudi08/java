@@ -278,6 +278,483 @@ char - single quotes
 
 string is a class
 
+public class Demo 
+{
+public static void main(String a[])
+{
+String name = "navin" //It works but string is a class we have to create 
+object for it
+String name = new String("navin");
+System.out.println(name);
+System.out.println(name.hashCode());
+System.out.println("hello" + name);
+System.out.println(name.charAt(1));
+System.out.println(name.concat("reddy"));
+}
+}
+
+Different Types of strings
+Mutable vs Immutable string
+Mutable - something will change
+Immutable - something will not change
+
+public class Demo 
+{
+public static void main(String a[])
+{
+String name = "navin" 
+name = name + "reddy";
+System.out.println("hello"+name)
+String s1 = "Navin"
+String s2 = "Navin"
+System.out.println(s1 == s2)
+}
+}
+it doesn't create the new object . It always refer to the existing one 
+even for concatation it doesn't change , it create the new string
+so the above code belongs to Immuatable.
+by default strings are immuatable once you create the object u can't change it
+string buffer and string builder --> both provide u way to implement 
+mutable string.
+
+---> String Builder and String Buffer
+public class Demo
+{
+public static void main(String a[])
+{
+StringBuffer sb = new StringBuffer("Navin");
+System.out.println(sb.capacity) --> 16 characters
+System.out.println(sb.length()); --> 5 
+sb.append("Reddy")
+sb.deleteCharAt(2)
+System.out.println(sb);  --> nain reddy
+String str = sb.toString();
+sb.insert(0,"java")
+sb.setLength(30);
+sb.ensureCapacity(minimumCpacity:100)
+
+stringBuffer -- thread safe 
+string builder -- not thread safe 
+
+If there is no continuous location inside your heap memory . there's no continuous next .
+if there is no location available. There's no space available.
+In that case it has to relocate.
+
+static variable -- every object will have a different value 
+but what if i want common value for all the objects.
+
+
+class Mobile 
+{
+   String brand;
+   int price;
+   static String name;
+
+    public void show() 
+    {
+System.out.println(brand + " : " + price  + " : " + name);
+    }
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Mobile obj1 = new Mobile();
+obj1.brand = "Apple";
+obj1.price = 1500;
+obj1.name = "Smart Phone";
+
+Mobile obj1 = new Mobile();
+obj1.brand = "Apple";
+obj1.price = 1500;
+obj1.name = "Smart Phone";
+
+obj1.name = "Phone"
+
+obj1.show()
+obj2.show()
+
+}
+}
+O/P:
+Apple:1500:Phone
+
+static variable should be  called only with class Names  you can call with objects but avoid it
+
+class Mobile 
+{
+   String brand;
+   int price;
+   static String name;
+
+    public void show() 
+    {
+System.out.println(brand + " : " + price  + " : " + name);
+    }
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Mobile obj1 = new Mobile();
+obj1.brand = "Apple";
+obj1.price = 1500;
+Mobile.name = "Smart Phone";
+
+Mobile obj1 = new Mobile();
+obj1.brand = "Apple";
+obj1.price = 1500;
+Mobile.name = "Smart Phone";
+
+obj1.name = "Phone"
+
+obj1.show()
+obj2.show()
+
+}
+}
+
+static is belong to the class
+
+=> static methods
+
+class Mobile 
+{
+   String brand;
+   int price;
+   static String name;
+
+    public void show() 
+    {
+System.out.println(brand + " : " + price  + " : " + name);
+    }
+public static void show1() 
+{
+System.out.println("in static method");
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Mobile.show1()
+}
+}
+
+class Mobile 
+{
+   String brand;
+   int price;
+   static String name;
+
+    public void show() 
+    {
+System.out.println(brand + " : " + price  + " : " + name);
+    }
+public static void show1() 
+{
+System.out.println(brand + " : " + price  + " : " + name);
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Mobile.show1()
+}
+}
+
+non static variable can't have access in static method
+because we have two different object brand and price --> it confuse which one to take
+
+class Mobile 
+{
+   String brand;
+   int price;
+   static String name;
+
+    public void show() 
+    {
+System.out.println(brand + " : " + price  + " : " + name);
+    }
+public static void show1(Mobile obj) 
+{
+System.out.println(obj.brand + " : " + obj.price  + " : " + obj.name);
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Mobile.show1(obj1)
+}
+}
+
+main --> static --> no need object
+if we initialized static varaiable in constructor every time  creation of object 
+it will be initialized so we don't want to do that 
+to achieve that we have special block  called static block
+static 
+{
+name ="Phone"
+}
+irrespective of how many objects create it will call only one time 
+class loads & objects are instantiated
+every time we load the class it will call --> static block
+if we don't create the object class will not load
+Class.forName("Mobile") --> public static void main(String a[])  throws ClassNotFoundException
+you just load the class
+
+Encapsulation
+
+encapsulation is part of oops
+class Human
+{
+private int age;'
+private String name;
+
+public int getAge() 
+{
+   return age;
+}
+public void setAge(int a) 
+{
+   age = a;
+}
+public void setName(String n) 
+{
+   name = n;
+}
+public String getName(String s) 
+{
+    return name;
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Human obj = new Human();
+obj.setAge(11);
+obj.setName("mouni");
+
+System.out.println(obj.getName() + " ")
+}
+}
+if i use private only same class can be used
+outside world can't use that variable for using that we use getters and setters
+we are binding the data with methods no one from outside world use ur variables directly 
+someone we are encaspulating data and methods
+
+class Human
+{
+private int age;'
+private String name;
+
+public int getAge() 
+{
+   return age;
+}
+public void setAge(int age) 
+{
+   this.age = age;
+}
+public void setName(String name) 
+{
+   this.name = name;
+}
+public String getName() 
+{
+    return name;
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Human obj = new Human();
+obj.setAge(11);
+obj.setName("mouni");
+
+System.out.println(obj.getName() + " ")
+}
+}
+
+this keyword
+
+public void setAge(int age) {
+Human obj1 = new Human()  -- but its creating new object
+obj1.age = age
+}
+obj1.age --> instance variable
+age --> local variable
+
+class Human
+{
+private int age;'
+private String name;
+
+public int getAge() 
+{
+   return age;
+}
+public void setAge(int age,Human obj) 
+{
+   this.age = age;
+}
+public void setName(String name) 
+{
+   this.name = name;
+}
+public String getName() 
+{
+    return name;
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Human obj = new Human();
+obj.setAge(11,obj);
+obj.setName("mouni");
+
+System.out.println(obj.getName() + " ")
+}
+}
+
+public void setAge(int age,Human obj) {
+Human obj1 = obj -- but its creating new object
+obj1.age = age
+}
+
+obj.setAge(30,obj); --we mentioning obj two times
+
+don't create the object and don't pass the object
+
+This is a keyword which represents --> the current object
+object is calling the method
+
+Constructors 
+when object is created i will assign the value 
+constructor is a method it has the same name as a class name.so those are the rules 
+u have to rememeber. a constructor never returns anything.you don't have to mention int,float
+or string anything there.specify the acess it is public and the mention name ,which is human
+
+class Human
+{
+private int age;'
+private String name;
+
+public Human() 
+{
+System.out.println("in constructor")
+}
+
+public int getAge() 
+{
+   return age;
+}
+public void setAge(int age,Human obj) 
+{
+   this.age = age;
+}
+public void setName(String name) 
+{
+   this.name = name;
+}
+public String getName() 
+{
+    return name;
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Human obj = new Human();
+obj.setAge(11,obj);
+obj.setName("mouni");
+
+System.out.println(obj.getName() + " ")
+}
+}
+
+we can assign the values by using (setters and getters) or constructors
+In constructor we can connect our project with database
+
+method overloading
+
+public Human()
+{
+age = 12;
+name = "john";
+}
+
+public Human(int a,String n) //Parameterized Constructor
+{
+age = a;
+name = n;
+}
+
+public Human(String name) {
+this.age = 12;
+this.name = name;
+}
+
+public Human(int age,String name) 
+{
+this.age = age;
+this.name = name;
+}
+
+if u don't make a constructor , the empty constructor automatically created
+
+//Camel casing
+
+class and interface- Calc,Runnable
+variable and method - starts with a small letter - marks and show()
+constants - all capital - PIE,BRAND
+//showMyMarks() - CAMELCASING 
+MyData
+age,DATA,Human()
+
+Anonymous object
+
+class A 
+{
+public void show() 
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
