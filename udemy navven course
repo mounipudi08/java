@@ -730,8 +730,222 @@ Anonymous object
 
 class A 
 {
+public A()
+{
+System.out.println("object created");
+}
 public void show() 
 {
+System.out.println("in A show");
+}
+}
+public class Demo
+{
+public static void main(String a[]) 
+{
+int marks;
+marks = 99;
+A obj;
+obj = new A();
+obj.show();
+}
+}
+class A 
+{
+public A()
+{
+System.out.println("object created");
+}
+public void show() 
+{
+System.out.println("in A show");
+}
+}
+public class Demo
+{
+public static void main(String a[]) 
+{
+
+ new A(); // anonymous object --. don't have a name 
+//you have the new object in the heap
+new A().show();
+}
+}
+
+what is inheritance
+class Calc 
+{
+public int add(int n1,int n2) 
+{
+   return n1+n2;
+}
+public int sub(int n1,int n2) 
+{
+   return n1-n2;
+}
+}
+
+
+
+public class AdvCalc 
+{
+public int multi(int n1,int n2) 
+{
+return n1*n2;
+}
+public int div(int n1,int n2) 
+{
+return n1/n2;
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Calc obj = new Calc(); if we use AdvCalc obj = new AdvCalc(); we can't use add and sub
+int r1 = obj.add(4,5)
+int r2 = obj.sub(7,5);
+
+}
+}
+
+public class AdvCalc extends calc
+{
+public int multi(int n1,int n2) 
+{
+return n1*n2;
+}
+public int div(int n1,int n2) 
+{
+return n1/n2;
+}
+}
+then we can use both the class methods
+advCalc --> sub class
+Calc --> super class
+
+
+--> need of inheritance 
+oops basically stands for object oriented programming
+in object oriented programming --> we have object,class,encapsulation
+
+Inheritance(is/has)
+desktop has a motherboard 
+desktop has a hard drive,it has a CPU(Important keyboard is has)
+
+class Calculator 
+{
+add()
+sub()
+multi()
+}
+class AdvCalc 
+{
+we already have this features of basic calculator so we extend that
+}
+
+so basically inheritance is a very important feature using which you can just copy the feature from the upper class
+parent,super,base 
+child,sub,derived
+
+Single and multiple inheritance
+
+public class veryAdvCalc extends AdvCalc
+{
+public double power(int n1,int n2) {
+return Math.pow(n1,n2);
+}
+}
+
+calc 
+advCalc extends Calc
+veryadvCalc extends advcalc
+
+only one level --> single level inheritance 
+multiple levels -->multi level inheritance
+
+multiple inheritance
+A and B both are parents of C
+
+class A {
+
+}
+class B {
+
+}
+class C  extends A,B{
+
+}
+
+multiple inheritance in java will not work
+if A and B both has this method , whch one he will choose  --> Ambiguity problem
+In java multiple inheritance does not work
+java does not support multiple inheritance
+
+This and super method 
+
+class A 
+{
+public A(){
+System.out.println("in A")
+}
+
+}
+class B extends A 
+{
+public B() 
+{
+System.out.println("in B")
+}
+public B(int n) 
+{
+System.out.println("in B int")
+}
+
+}
+public class Demo
+{
+public static void main(String a[])
+{
+B obj = new B();
+
+}
+}
+O/P:
+in A
+in B
+
+It will call the constructor of both
+
+public class Demo
+{
+public static void main(String a[])
+{
+B obj = new B(5);
+
+}
+}
+every constructor of java has a 1st stament is super method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
