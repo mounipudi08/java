@@ -981,6 +981,433 @@ in A
 in B
 in B int
 
+method overriding
+
+class A 
+{
+public void show() 
+{
+System.out.println("in A show");
+}
+public void config()
+{
+System.out.println("In A Config")
+}
+}
+
+class B extends A 
+{
+public void show1() 
+{
+System.out.println("in B show")
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+B obj = new B();
+obj.show()
+obj.config();
+}}
+
+method overloading have same name but different parameters 
+
+In method overriding -
+It will be same name and same parameters as well but it will have different behaviour
+
+class Calc 
+{
+public int add(int n1,int n2) 
+{
+return n1+n2;
+}
+}
+
+class AdvCalc extends Calc 
+{
+public int add(int n1,int n2) 
+{
+return n1+n2+1;
+}
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+AdvCalc obj = new AdvCalc();
+int r1 = obj.add(3,4);
+System.out.println(r1);
+}}
+
+child class method is overriding the method of parent class
+
+packages
+
+we use keword package - package
+
+To put your classes in a package
+
+import tools.Calc;
+import tools.AdvCalc;
+import java.util.Arraylist;
+
+public class Demo 
+{
+public static void main(String a[])
+{
+ArrayList list = new ArrayList();
+AdvCalc obj = new AdvCalc();
+Calc obj = new Calc();
+}
+}
+by default java.lang imported in every java file
+
+import java.lang.*
+import tools.*
+
+package other.tools;
+import other.tools;
+
+package --> should be unique
+
+Access modifiers
+
+protected
+public
+if u want to access outside the package -> then it  must be public
+public means it can be accessed where from anywhere
+private --> use in same class
+private variables can be used in same class irrespective of the package 
+             private        protected      public      default
+
+same class     yes             yes           yes         yes
+
+same package   No              yes           yes         yes
+
+same package   No              yes           yes          yes
+non-subclass   
+ 
+different package No           yes           yes          No
+subclass
+
+different package  No          No            yes          No
+non-subclass
+
+class public
+
+Keep your variables , instance variables --> private
+
+methods --> public
+
+Polymorphism
+
+Poly - many 
+morphism  - behaviour
+
+so the same object or the same reference
+
+compile time polymorphism - early binding - behaviour defined at compile time
+runtime polymorphism - late binding
+
+
+add(int,int)
+add(int,int,int)
+
+class A and Class B to add two different classes
+so ur behaviour of your reference 
+or execution will change based on some situation
+
+dynamic method dispatch(run time polymorphism)
+class A 
+{
+public void show()
+{
+System.out.println("in A show");
+}
+}
+class B extends A 
+{
+public void show()
+{
+System.out.println("in B show");
+}
+}
+class C extends A 
+{
+public void show()
+{
+System.out.println("in C show");
+}
+}
+
+public class Demo
+{
+public static void main(String a[]) 
+{
+A obj = new A();
+obj.show();
+}
+}
+o/p:
+In A show
+
+public class Demo
+{
+public static void main(String a[]) 
+{
+A obj = new A();
+obj.show();
+
+obj = new B();
+obj.show();
+}
+
+obj = new  C();
+obj.show();
+}
+o/p:
+In A show
+In B show
+In C show
+
+Irespective of what type of object you have , what type of variable you create 
+Its type A , it will depend on what type of object u have
+it is only possible you have inheritance
+we don't know what is the output till we run the code 
+
+
+Final keyword - variable ,method,class
+
+public class Demo
+{
+public static void main(String a[]) 
+{
+  final int num = 8;
+    num = 9;
+ when you make a variable as a final variable
+ the variable become constant
+  once you assign the value you can't change it
+
+
+final method  --
+
+final class Calc 
+{
+public void show() 
+{
+System.out.println("in Calc show");
+}
+public void add(int a, int b) {
+System.out.println(a+b);
+}
+
+class AdvCalc extends Calc 
+{
+
+}
+public class demo
+{
+public static void main(String a[])
+{
+Calc obj = new Calc();
+obj.show();
+obj.add(4,5);
+}
+
+The type advanced calculator cannot be a subclass of the final class
+when you make the final you are basically stopping the inheritance
+
+when you make a class final it means no one can extend it
+
+to stop method overriding
+you make ur method as final no one can override it
+
+Oject class equals to StringHashcode
+
+every class in java extend the object class
+
+
+object class equals to hash code
+
+class Laptop
+{
+String model;
+int price;
+
+public String toString() 
+{
+retun "Hey"
+}}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Laptop obj = new Laptop()
+obj.model = "lenovo yoga"
+obj.price = 1000;
+System.out.println(obj);
+}
+}
+O/P: hey
+
+class Laptop
+{
+String model;
+int price;
+
+public String toString() 
+{
+retun  model + ":" + price
+}}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Laptop obj = new Laptop()
+obj.model = "lenovo yoga"
+obj.price = 1000;
+System.out.println(obj);
+}
+}
+O/P: Lenovo Yoga
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Laptop obj1 = new Laptop()
+obj.model = "lenovo yoga"
+obj.price = 1000;
+
+Laptop obj2 = new Laptop()
+obj.model = "lenovo yoga"
+obj.price = 1000;
+boolean result = obj1 == obj2; //obj1.equals(obj2) they are comparing based on hexa decimal values
+System.out.println(result);
+}
+}
+O/P: false
+
+public boolean equals(Laptop that) 
+{
+   if(this.model.equals(that.model) && this.price == that.price) 
+  {
+   return true;
+   }
+  else
+{
+  return false;
+}
+}
+}
+
+public boolean equals(Laptop that) 
+{
+  return  this.model.equals(that.model) && this.price == that.price  
+}
+
+every time we print the obj it will call automatically toString method
+
+if you don't have a method in your class it will method in super class
+so we created method itself
+
+
+Upcasting and downcasting
+
+public class Demo
+{
+public static void main(String a[]) 
+{
+double d = 4.5;
+int i = (int)d;  you are converting into type of a value
+}
+}
+in the world of oops
+
+class A 
+{
+  public void show1() 
+{
+s.p.o("in A show");
+}
+}
+class B  extends A
+{
+public void show2() 
+{
+s.p.o("in B show")
+}
+
+}
+
+public class Demo 
+{
+public static void main(String a[])
+{
+//  A obj = new A():
+A obj = new B() --> I can have a reference of A and object of B 
+A obj = (A) new B(); // which is upcasting
+obj.show1();
+}
+}
+
+now what is downcasting?
+
+public class Demo 
+{
+public static void main(String a[])
+{
+A obj = new B();
+obj.show1();
+
+B obj1 = (B) obj;
+obj1.show2();
+
+}
+}
+
+Wrapper classes
+int,float they are primitive types not object types
+
+collection framework 
+
+In array we have primitive types
+ Wrapper class
+int --> Integer
+char --> Character
+double --> Double
+
+
+for every primitive type we have class for it
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+int num = 7;(primitive variable )
+//Integer num1 = new Intger(8);(reference variable) //boxing
+Integer num1 = 8;
+int num2 = num1.intValue();  -->  unboxing // getting value from object type
+System.out.println(num2) 
+
+boxing -- you are taking a value that storing that in a primitive object
+or in a wrapper object 
+
+when u store a primitive type in the object automatically
+unboxing  --> take out the value from the object
+
+
+String str = "12"
+int num3 = Integer.parseInt(str);
+
+System.out.println(num3*2);
+
+
+
+
+
 
 
 
