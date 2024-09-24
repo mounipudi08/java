@@ -1404,6 +1404,375 @@ int num3 = Integer.parseInt(str);
 
 System.out.println(num3*2);
 
+Abstract keyword
+
+abstract class Car 
+{
+public abstract void drive();
+public abstarct void fly();
+
+public void playMusic()
+{
+System.out.println("playMusic");
+}
+}
+class WagonR extends Car 
+{
+public void fly()
+{
+System.out.println("flying...")
+}
+public void drive()
+{
+System.out.println("Driving...")
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+ Car obj = new WagonR();
+obj.drive();
+obj.playMusic();
+}
+}
+
+you can have the abstract method only in the abstract class
+if u are extending abstract class u need to define it
+otherwise it will not work
+you can't create object of the abstract class
+but it create a reference of abstract class
+abstract class with which only has abstarct methods
+you can have abstract class which has only implemented methods
+you can have abstact class which has both abstract and non abstract methods
+if  you have a class which is not able to implement all the methods in this case even this class become abstarct
+
+===> Inner class
+
+class A 
+{
+int age;
+public void show()
+{
+System.out.println("in show");
+}
+class B 
+{
+ public void config() 
+ {
+  System.out.println("in config")
+ }
+}
+}
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+A obj = new A();
+obj.show();
+
+A.B obj1 = obj.new B();
+obj1.config();
+}
+}
+
+if it is a static class B --> no need of obj --> A.B obj1 = new A.B();
+static can be used for only the inner class
+
+Anonymous Inner class -- Anonymous doesn't have a name
+class A {
+public void show() 
+{
+System.out.println("in A show");
+}
+}
+
+class B extends A 
+{
+public void show() 
+{
+System.out.println("in b SHOW");
+}
+}
+
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+A obj = new A();
+obj.show();
+}
+
+iF THE INNER CLASS USED ONLY ONCE
+SO WHY TO CREATE A NEW CLASS
+HOW WILL YOU GET A NEW IMPLEMENTATION
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+A obj = new A();
+{
+      public void show() 
+      {
+      System.out.println("in new show");
+      }
+};
+obj.show();
+}
+
+-->ABSTARCT AND ANONYMOUS INNER CLASS
+abstract class A 
+{
+public abstract void show();
+public abstract void config();
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+A obj = new A();
+{
+      public void show() 
+      {
+      System.out.println("in new show");
+      }
+       public void config() 
+      {
+      System.out.println("in config");
+      }
+};
+obj.show();
+}
+HERE WE ARE NOT CREATING THE OBJECT OF ABSTRACT CLASS WE ARE CREATING THE OBJECT OF  ANONYMOUS CLASS
+
+what is an interface?
+if you have a class it only have a abstract methods then we can create a interface
+abstarct class A 
+{
+public abstract void show();
+public abstarct void config();
+
+}
+
+public class Demo
+{
+public static void main(String a[])
+{
+
+}
+}
+
+
+interface A 
+{
+int age = 44;  // by default final and static // that means we have to first initialize the variable
+String area = "Mumbai";
+public abstract void show();  // void show(); --> even we don't mention  public abstract it default public abstarct
+public abstarct void config();
+
+}
+
+Class B implements A 
+{
+public void show() 
+      {
+      System.out.println("in new show");
+      }
+       public void config() 
+      {
+      System.out.println("in config");
+      }
+}
+public class demo 
+{
+public static void main(String a[]) 
+{
+A obj;
+obj = new A();//YOU CAN'T INSTANTIATE 
+obj = new B();
+obj.show();
+obj.config();
+S.o.P(A.area);
+}
+}
+
+INTERFACE TELLS WHAT ARE THE METHODS YOU NEED
+BUT I WILL NOT IMPLEMENT THEM 
+iTS YOUR JOB TO IMPLEMENT
+INTERFACE SHOWS YOU THE DESIGN 
+if you fail to define both the methods by default your class also become abstract
+in implements we can only implement the method not variables so it used interface name
+so it is static
+we can't create the memory . so if you don't have your own memory , how can you have non final variable?
+
+
+More on interfaces
+
+abstarct class A 
+{
+public abstract void show();
+public abstarct void config();
+
+}
+
+public class Demo
+{
+public static void main(String a[])
+{
+
+}
+}
+
+
+interface A 
+{
+int age = 44;  // by default final and static // that means we have to first initialize the variable
+String area = "Mumbai";
+public abstract void show();  // void show(); --> even we don't mention  public abstract it default public abstarct
+public abstarct void config();
+
+}
+interface X
+{
+
+void run();
+}
+
+interface Y extends X
+{
+
+}
+
+Class B implements A , X
+{
+public void show() 
+      {
+      System.out.println("in new show");
+      }
+       public void config() 
+      {
+      System.out.println("in config");
+      }
+public void run() 
+      {
+      System.out.println("run");
+      }
+
+}
+public class demo 
+{
+public static void main(String a[]) 
+{
+A obj;
+obj = new A();//YOU CAN'T INSTANTIATE 
+obj = new B();
+obj.show();
+obj.config();
+S.o.P(A.area);
+X obj1 = new B();
+obj1.run();
+}
+}
+
+Because in abstract class ,we can extend only one class
+In interface you can have a class implementing multiple interfaces
+
+class - class --> extends 
+class -- interface --> implements
+interface - interface --> extends
+
+need of interface 
+
+abstarct class Computer
+{
+public  abstract void code();
+}
+
+class Laptop extends Computer
+{
+public void code()
+{
+System.out.println("coding...,compile,run")
+}
+}
+class Desktop extends Computer
+{
+public void code()
+{
+System.out.println("coding...,compile,run:Faster")
+
+}
+}
+class developer 
+{
+  public void devApp(Computer lap) 
+  {
+  lap.code();
+
+  }
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Computer lap = new Laptop();
+Computer desk = new Desktop();
+Developer navin = new Developer();
+navin.devApp(desk);
+}
+}
+
+interface Computer
+{
+ void code();
+}
+
+class Laptop impleemnts Computer
+{
+public void code()
+{
+System.out.println("coding...,compile,run")
+}
+}
+class Desktop implements Computer
+{
+public void code()
+{
+System.out.println("coding...,compile,run:Faster")
+
+}
+}
+class developer 
+{
+  public void devApp(Computer lap) 
+  {
+  lap.code();
+
+  }
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+Computer lap = new Laptop();
+Computer desk = new Desktop();
+Developer navin = new Developer();
+navin.devApp(desk);
+}
+}
+
+
+
+
+
+
+
+
+
 
 
 
