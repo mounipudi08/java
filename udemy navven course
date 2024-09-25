@@ -1788,6 +1788,126 @@ that status is a class there
 Running,Failed,Pending,Success --> objects 
 named constants 
 if you have a scenerio where you want to use constants we can use this concept
+Status s = Status.Pending;
+if(s == Status.Ruuning) 
+      System.out.println("All Good")
+else if( s == Status.Failed) 
+   System.out.println("Try Again")
+else if(s == Status.Pending)
+    System.out.println("Please wait")
+ else
+    System.out.println("Done")
+
+Status s = Status.Running;
+switch(s)
+{
+   case Running:
+       System.out.println("All Good");
+       break;
+   case Failed:
+        System.out.println("Try Again")
+        break;
+   case Pending:
+        System.out.println("Try Again")
+        break;
+   default
+        System.out.println("Done")
+        break; 
+}
+
+Enum class
+we can extend any other class
+you can't extend enum with any other class
+you can create constructors 
+you can also create own varibales inside the enum
+Enum in java extends the enum class all these extra methods getting from enum class
+class java.lang.Enum
+
+enum Laptop {
+Macbook(2000),XPS(2200) , Surface
+
+private int price;
+private Laptop() 
+{
+  price = 500;
+}
+private Laptop(int price)
+{
+this.price = price;
+}
+pubic int getPrice()
+{
+return price; 
+}
+public void setPrice(int price) {
+this.price = price;
+}
+}
+public class Demo
+{
+public static void main(String a[]) 
+{
+//Laptop lap = Laptop.Macbook;
+//System.out.println(lap + " : " + lap.getPrice());
+for(Laptop lap: Laptop.values())  {
+System.out.println(lap +  " : " + lap.getPrice());
+}
+}
+
+we are using it as a private constructor , not a default or the public 
+Its because we are creating the object in the same class itself
+thats how private constructor works you can create the object in the same class
+
+what is annotation
+now anootation simply means a supplement  to the compiler or to the run time
+we want to supply extra information to the compiler or to the run time
+
+class A 
+{
+public void showTheDataWhichBelongsToThisClass() 
+{
+
+System.out.println("in A show")
+}
+}
+class B extends A 
+{
+@Override
+public void showTheDataWhichBelongToThisClass()  //then it will come error
+{
+
+System.out.println("in A show")
+}
+}
+
+public class Demo
+{
+publid static void main(String[] args)
+{
+B obj = new B() 
+obj.showTheDataWhichBelongsToThisClass();
+}
+}
+there is a difference in class names. so if u want to call B method but it call A method
+
+in spring framework and hybernate framework mostly driven in annotations
+
+@Depecated --> some one using or not using
+
+Types of interface
+
+1) Normal
+2)function
+
+
+
+
+
+
+
+   
+
+
 
 
 
