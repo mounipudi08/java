@@ -1896,8 +1896,18 @@ in spring framework and hybernate framework mostly driven in annotations
 
 Types of interface
 
-1) Normal
-2)function
+1)Normal - two or more methods
+2)functional -- called as SAM(Single abstaract method)
+3)Marker -- which has no methods
+
+
+
+
+
+
+
+
+
 
 
 
