@@ -1900,6 +1900,80 @@ Types of interface
 2)functional -- called as SAM(Single abstaract method)
 3)Marker -- which has no methods
 
+Lambda expression
+
+@FunctionalInterface
+interface A 
+{
+void show(int i,int j);
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+A obj = (i,j) -> System.out.println("in new show"+i);
+
+obj.show(5,8);
+}
+
+Lambda expression with return
+
+@FunctionalInterface
+interface A 
+{
+int add(int i,int j);
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+A obj = (i,j) -> i+j;
+int result = obj.add(5,4);
+System.out.println(result);
+}
+
+83) what is exception
+
+error --> compile time error/Run time error/logical
+
+System.out.Println( --> syntax error compile time error
+
+Logical time error  --> steps are wrong
+
+runtime issues  --> code will stop at the middle --> exception handling
+
+exception handling using try catch
+
+statements --> normal 
+      ----> critical
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+int i =0;
+try
+{
+int j = 18/i;
+}
+catch
+{
+System.out.println("Something went wrong)
+
+}
+System.out.println(j);  --> Airthmetic exception
+
+Try with multiple catch
+
+  
+
+
+
+
+
+
+
+
 
 
 
