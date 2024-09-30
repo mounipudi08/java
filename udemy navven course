@@ -1965,6 +1965,325 @@ System.out.println(j);  --> Airthmetic exception
 
 Try with multiple catch
 
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+int i =0;
+int j=0;
+int nums[] = new int[5]
+try
+{
+int j = 18/i;
+System.out.println(nums[5]);
+}
+catch(Exeception e)
+{
+System.out.println("Something went wrong " + e)
+}
+
+System.out.println(j); 
+
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+int i =2;
+int j=0;
+int nums[] = new int[5]
+String str = null;
+try
+{
+int j = 18/i;
+System.out.println(str.length())
+System.out.println(nums[5]);
+}
+catch(ArithmeticExeception e)
+{
+System.out.println("Cannot divide by zero");
+}
+catch(ArrayIndexOutOfBoundsException e)
+{
+System.out.println("stay in your limit");
+}
+catch(Exception e)  // parent at the bottom
+{
+System.out.println("Something went wrong " + e);
+}
+
+System.out.println(j); 
+
+Exception Hirearchy 
+
+ever class in java extends object
+                              |
+                           Throwable
+                     |                        |
+                 error                      exception
+            (Something you can't handle)        | (runtime exceptions called unchecked exception)
+                                               rUNtIME EXCEPTION  -- Airthmetic/ Array Index out of bound exception / Null  pointer exception
+                                              SQL exception (checked exception)
+                                              IO exception(checked exception)
+              -- Thread Death
+              --- IO ERROR
+              --- VIRTUAL MACHINE ERROR
+              --- OUT OF MEMMORY ERROR 
+
+exception with throws and throw
+
+public class Demo 
+{
+public static void main(String a[]) 
+{
+int i =2;
+int j=0;
+int nums[] = new int[5]
+String str = null;
+try
+{
+int j = 18/i;
+if(j == 0) 
+    throw new AirthmeticException("I don't want to print zero"); // we creating the object of arthmeticException
+}
+catch(ArithmeticExeception e)
+{
+System.out.println("Cannot divide by zero");
+}
+catch(Exception e)
+{
+System.out.println("Something went wrong" + e);
+}
+System.out.println(j); 
+
+
+Custom Exception
+
+class NavinException extends Exception / or RuntimeExeception
+{
+public NavinException(String string)
+{
+   super(string); //exception has a counstructor which accepts string
+}
+}
+public class Demo 
+{
+public static void main(String a[]) 
+{
+int i =20;
+int j=0;
+try
+{
+int j = 18/i;
+if(j == 0) 
+    throw new NavinException("I don't want to print zero"); // we creating the object of arthmeticException
+}
+catch(NavinExeception e)
+{
+j = 18/1
+System.out.println("thats the default output " + e);
+}
+catch(Exception e)
+{
+System.out.println("Something went wrong" + e);
+}
+System.out.println(j); 
+
+
+Duckng exception using Throws
+
+d() 
+{
+
+
+}
+
+for unchecked exception it is not compulsory to handle the exception
+for checked exception 
+
+class A  {
+
+public void show() 
+{
+try() 
+{
+Class.forName("Demo");
+}
+catch(ClassNotFoundException e) 
+{
+System.out.println("Not able to find the class") 
+}
+}
+}
+public class Demo 
+{
+static 
+{
+System.out.println("class loaded")
+}
+public static void main(String a[]) 
+{
+A obj = new A() 
+obj.show();
+}
+}
+
+throws -> who is calling it must be handled the exception
+
+class A  {
+
+public void show() throws ClassNotFoundException
+{
+try() 
+{
+Class.forName("Calc");
+}
+catch(ClassNotFoundException e) 
+{
+System.out.println("Not able to find the class") 
+}
+}
+}
+public class Demo 
+{
+static 
+{
+System.out.println("class loaded")
+}
+public static void main(String a[]) 
+{
+A obj = new A() 
+try{
+obj.show();
+}
+catch(ClassNotFoundException e) {
+e.printStackTrace(); 
+}
+
+UserInput using BufferReader and Scanner
+
+public class Demo {
+public static void main(String a[]) 
+{
+System.out.println()
+// println belongs to print stream
+u first have to create object of the print stream
+
+out is the object of print stream
+public static final PrintStream out = null --> inside the Sytem class
+
+import java.io.Exception;
+ import java.io.BufferedReader;
+public class Demo{
+public static void main(String a[]) throws IOException {
+System.out.println("enter a number");
+int num = System.in.read();
+
+System.out.println(num ); //It will give the ascii representation of that value
+System.out.println(num - 48 ) // it will give the exact num
+InputStreamReader in = new InputStreamReader(System.in)
+BufferedReader bf = new BufferedReader(in);
+int num = Integer.parseInt(bf.readLine());
+System.out.println(num);
+
+bf.close();
+}
+}
+
+buffered reader is actually a resource
+
+import java.util.Scanner;
+
+public class Demo {
+public static void main(String a[]) throws IOException {
+System.out.println("Enter a number") 
+Scanner sc = new Scanner(System.in)
+int num = sc.nextInt();
+System.oyt.println(num);
+}}
+
+===> Try with resources 
+
+public class Demo{
+public static void main(String a[]) {
+int i=0;
+int j = 0;
+try
+{
+    j = 18/i
+}
+finally 
+{
+
+
+}
+}
+}
+if u don't want to write catch  you can write finally
+
+public class Demo{
+public static void main(String a[]) {
+int i=0;
+int j = 0;
+try
+{
+    j = 18/i
+System.out.println("Bye")
+}
+catch(Exception e)
+{
+System.out.println('Something went wrong.")
+}
+finally 
+{
+System.out.println("Bye");
+}
+}
+}
+
+finally irrespective - you got the exception or not execute the final block
+finally makes sense whenever we want close the resource
+
+whenever we use close the resource and connection we use finally block
+
+public class Demo{
+public static void main(String a[]) throws NumberFormatException
+{
+int num = 0;
+try{
+InputStreamReader in = new InputStreamReader(System.in)
+BufferReader br = new BufferedReader(in)
+num = Integer.parseInt(br.readLine());
+System.out.line(num)
+}
+finally 
+{
+br.close();
+}
+}}
+
+try({
+InputStreamReader in = new InputStreamReader(System.in)
+BufferReader br = new BufferedReader(in)
+num = Integer.parseInt(br.readLine());
+System.out.line(num)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 
